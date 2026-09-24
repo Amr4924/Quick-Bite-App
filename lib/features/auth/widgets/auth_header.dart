@@ -13,23 +13,29 @@ class AuthHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<AuthSwitchCubit, AuthSwitchState>(
       builder: (context, state) {
-        return Column(
-          children: [
-            SvgPicture.asset('assets/svgs/quickBite_logo.svg'),
-            verticalSpacing(20),
-            Text(
-              state.isLogin ? "Welcome Back" : "Create Account",
-              style: TextStyles.font24BlackBold,
-            ),
-            verticalSpacing(20),
-            Text(
-              state.isLogin
-                  ? "Log in to continue ordering your\nfavorites"
-                  : "Sign up to start ordering your favorite\nmeals",
-              style: TextStyles.font14WarmGrayRegular,
-              textAlign: TextAlign.center,
-            ),
-          ],
+        return AnimatedSwitcher(
+          switchInCurve: Curves.easeInCirc,
+          switchOutCurve: Curves.easeInOutCirc,
+          duration: Duration(milliseconds: 400),
+          child: Column(
+            key: ValueKey(state.isLogin),
+            children: [
+              SvgPicture.asset('assets/svgs/quickBite_logo.svg'),
+              verticalSpacing(20),
+              Text(
+                state.isLogin ? "Welcome Back" : "Create Account",
+                style: TextStyles.font24BlackBold,
+              ),
+              verticalSpacing(20),
+              Text(
+                state.isLogin
+                    ? "Log in to continue ordering your\nfavorites"
+                    : "Sign up to start ordering your favorite\nmeals",
+                style: TextStyles.font14WarmGrayRegular,
+                textAlign: TextAlign.center,
+              ),
+            ],
+          ),
         );
       },
     );
