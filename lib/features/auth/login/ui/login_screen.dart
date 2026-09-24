@@ -21,18 +21,21 @@ class _LoginScreenState extends State<LoginScreen> {
       child: SingleChildScrollView(
         child: Column(
           children: [
-            QuickBiteTextForm(hintText: "Enter your Email", labelText: "Email"),
+            const QuickBiteTextForm(
+              hintText: "Enter your Email",
+              labelText: "Email",
+            ),
             verticalSpacing(20),
-            QuickBiteTextForm(
+            const QuickBiteTextForm(
               hintText: "Enter your password",
               labelText: "Password",
             ),
             verticalSpacing(20),
-            ForgotPassword(),
+            const ForgotPassword(),
             verticalSpacing(20),
-            AppButton(textButton: "Log In"),
+            const AppButton(textButton: "Log In"),
             verticalSpacing(20),
-            ContinueWith(),
+            const ContinueWith(),
           ],
         ),
       ),

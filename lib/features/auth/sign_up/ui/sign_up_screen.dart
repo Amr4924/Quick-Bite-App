@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:quick_bite/core/theming/style.dart';
 
 class SignUpScreen extends StatelessWidget {
-  const new({super.key});
+  const SignUpScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

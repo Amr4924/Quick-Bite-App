@@ -9,7 +9,7 @@ class OnboardingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-        child: Column(children: [Herro(), Content()]),
+        child: Column(children: [const Herro(), const Content()]),
       ),
     );
   }
