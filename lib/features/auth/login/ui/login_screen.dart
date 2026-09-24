@@ -33,7 +33,7 @@ class _LoginScreenState extends State<LoginScreen> {
             verticalSpacing(20),
             const ForgotPassword(),
             verticalSpacing(20),
-            const AppButton(textButton: "Log In"),
+            AppButton(textButton: "Log In", onPressed: () {}),
             verticalSpacing(20),
             const ContinueWith(),
           ],
