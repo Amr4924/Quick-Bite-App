@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quick_bite/core/routing/router.dart';
+import 'package:quick_bite/features/auth/auth_screen.dart';
 import 'package:quick_bite/features/onboarding/onboarding_screen.dart';
 
 class AppRouter {
@@ -7,8 +8,8 @@ class AppRouter {
     switch (settings.name) {
       case Routes.onboardingScreen:
         return MaterialPageRoute(builder: (_) => const OnboardingScreen());
-      case Routes.loginScreen:
-        return MaterialPageRoute(builder: (_) => const Placeholder());
+      case Routes.authScreen:
+        return MaterialPageRoute(builder: (_) => const AuthScreen());
       default:
         return MaterialPageRoute(
           builder: (_) {

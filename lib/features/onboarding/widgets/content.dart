@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quick_bite/core/helpers/spasing.dart';
+import 'package:quick_bite/core/routing/router.dart';
 import 'package:quick_bite/core/theming/color.dart';
 import 'package:quick_bite/core/theming/style.dart';
 
@@ -35,10 +36,12 @@ class Content extends StatelessWidget {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: ColorManager.primaryColor,
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, Routes.authScreen);
+                },
                 child: Text(
                   "Get Started",
-                  style: TextStyles.font16WWhiteSemiBold,
+                  style: TextStyles.font16WhiteSemiBold,
                 ),
               ),
             ),
