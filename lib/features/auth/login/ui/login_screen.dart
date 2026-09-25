@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quick_bite/core/helpers/spasing.dart';
+import 'package:quick_bite/core/routing/router.dart';
 import 'package:quick_bite/core/widgets/app_button.dart';
 import 'package:quick_bite/core/widgets/quick_bite_text_form.dart';
 import 'package:quick_bite/features/auth/widgets/continue_with.dart';
@@ -34,7 +35,12 @@ class _LoginScreenState extends State<LoginScreen> {
             verticalSpacing(20),
             const ForgotPassword(),
             verticalSpacing(20),
-            AppButton(textButton: "Log In", onPressed: () {}),
+            AppButton(
+              textButton: "Log In",
+              onPressed: () {
+                Navigator.pushNamed(context, Routes.homeScreen);
+              },
+            ),
             verticalSpacing(20),
             const ContinueWith(),
           ],

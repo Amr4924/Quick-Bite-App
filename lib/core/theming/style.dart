@@ -55,6 +55,11 @@ class TextStyles {
     fontWeight: TextWeightHelper.semiBold,
     color: ColorManager.primaryColor,
   );
+  static TextStyle font15OrangeBold = GoogleFonts.poppins(
+    fontSize: 15.sp,
+    fontWeight: TextWeightHelper.bold,
+    color: ColorManager.primaryColor,
+  );
   static TextStyle font13DeepTerracottaRegular = TextStyle(
     fontSize: 13.sp,
     fontWeight: TextWeightHelper.regular,
@@ -65,9 +70,39 @@ class TextStyles {
     fontWeight: TextWeightHelper.medium,
     color: ColorManager.textPrimary,
   );
+  static TextStyle font14BlackSemiBold = TextStyle(
+    fontSize: 14.sp,
+    fontWeight: TextWeightHelper.semiBold,
+    color: ColorManager.textPrimary,
+  );
+  static TextStyle font15BlackSemiBold = TextStyle(
+    fontSize: 15.sp,
+    fontWeight: TextWeightHelper.semiBold,
+    color: ColorManager.textPrimary,
+  );
   static TextStyle font12DeepTerracottakRegular = TextStyle(
     fontSize: 12.sp,
     fontWeight: TextWeightHelper.regular,
     color: ColorManager.deepTerracotta,
+  );
+  static TextStyle font12WarmGrayRegular = TextStyle(
+    fontSize: 12.sp,
+    fontWeight: TextWeightHelper.regular,
+    color: ColorManager.textSecondry,
+  );
+  static TextStyle font20BlackBold = TextStyle(
+    fontSize: 20.sp,
+    fontWeight: TextWeightHelper.bold,
+    color: ColorManager.textPrimary,
+  );
+  static TextStyle font17BlackSemiBold = TextStyle(
+    fontSize: 17.sp,
+    fontWeight: TextWeightHelper.semiBold,
+    color: ColorManager.textPrimary,
+  );
+  static TextStyle font12OrangeSemiBold = GoogleFonts.poppins(
+    fontSize: 12.sp,
+    fontWeight: TextWeightHelper.semiBold,
+    color: ColorManager.primaryColor,
   );
 }
