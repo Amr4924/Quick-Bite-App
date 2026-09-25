@@ -65,4 +65,9 @@ class TextStyles {
     fontWeight: TextWeightHelper.medium,
     color: ColorManager.textPrimary,
   );
+  static TextStyle font12DeepTerracottakRegular = TextStyle(
+    fontSize: 12.sp,
+    fontWeight: TextWeightHelper.regular,
+    color: ColorManager.deepTerracotta,
+  );
 }

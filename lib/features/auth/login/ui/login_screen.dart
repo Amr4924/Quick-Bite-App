@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:quick_bite/core/helpers/spasing.dart';
 import 'package:quick_bite/core/widgets/app_button.dart';
 import 'package:quick_bite/core/widgets/quick_bite_text_form.dart';
-import 'package:quick_bite/features/auth/login/ui/widgets/continue_with.dart';
+import 'package:quick_bite/features/auth/widgets/continue_with.dart';
 import 'package:quick_bite/features/auth/login/ui/widgets/forgot_password.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -29,6 +29,7 @@ class _LoginScreenState extends State<LoginScreen> {
             const QuickBiteTextForm(
               hintText: "Enter your password",
               labelText: "Password",
+              obscureText: true,
             ),
             verticalSpacing(20),
             const ForgotPassword(),
