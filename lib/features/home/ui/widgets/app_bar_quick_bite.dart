@@ -12,7 +12,7 @@ class AppBarQuickBite extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity.w,
-      height: 44.h,
+      padding: EdgeInsets.symmetric(vertical: 2.h),
       decoration: BoxDecoration(color: ColorManager.whiteBackgroundColor),
       child: Row(
         children: [
