@@ -52,7 +52,7 @@ class AuthSwitcher extends StatelessWidget {
                       ? ColorManager.primaryColor
                       : ColorManager.backgroundColor,
                   child: Text(
-                    "Log In",
+                    "Sign Up",
                     style: TextStyles.font14WhiteSemiBold.copyWith(
                       color: !state.isLogin
                           ? Colors.white
