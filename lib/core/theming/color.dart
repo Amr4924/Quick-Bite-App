@@ -9,4 +9,5 @@ class ColorManager {
   static const Color secondry = Color(0xffFFB020);
   static const Color grey = Color(0xffECE6E2);
   static const Color deepTerracotta = Color(0xffACA39E);
+  static const Color red = Color(0xffFF3B30);
 }

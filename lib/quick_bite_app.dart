@@ -5,6 +5,7 @@ import 'package:quick_bite/core/routing/app_router.dart';
 import 'package:quick_bite/core/routing/router.dart';
 import 'package:quick_bite/core/theming/color.dart';
 import 'package:quick_bite/features/auth/logic/cubit/auth_switch_cubit.dart';
+import 'package:quick_bite/features/home/logic/cubit/product_cubit.dart';
 
 class QuickBiteApp extends StatelessWidget {
   final AppRouter approuter;
@@ -16,7 +17,10 @@ class QuickBiteApp extends StatelessWidget {
       designSize: const Size(390, 844),
       minTextAdapt: true,
       child: MultiBlocProvider(
-        providers: [BlocProvider(create: (context) => AuthSwitchCubit())],
+        providers: [
+          BlocProvider(create: (context) => AuthSwitchCubit()),
+          BlocProvider(create: (context) => ProductCubit()),
+        ],
         child: MaterialApp(
           theme: ThemeData(
             scaffoldBackgroundColor: ColorManager.backgroundColor,
