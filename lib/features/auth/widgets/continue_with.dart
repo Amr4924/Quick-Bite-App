@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quick_bite/core/helpers/spasing.dart';
 import 'package:quick_bite/core/theming/color.dart';
 import 'package:quick_bite/core/theming/style.dart';
+import 'package:quick_bite/core/widgets/app_button_switch.dart';
 
 class ContinueWith extends StatelessWidget {
   const ContinueWith({super.key});
@@ -32,20 +33,15 @@ class ContinueWith extends StatelessWidget {
           child: Row(
             children: [
               Expanded(
-                child: GestureDetector(
+                child: AppButtoSwitch(
+                  width: 161.w,
+                  height: 50.h,
                   onTap: () {},
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: ColorManager.whiteBackgroundColor,
-                      borderRadius: BorderRadius.circular(14.r),
-                      border: Border.all(color: ColorManager.grey, width: 1.w),
-                    ),
-                    child: Center(
-                      child: Text(
-                        "Google",
-                        style: TextStyles.font14BlackMedium,
-                      ),
-                    ),
+                  colorButton: ColorManager.whiteBackgroundColor,
+                  borderRadius: BorderRadius.circular(14.r),
+                  border: Border.all(color: ColorManager.grey, width: 1.w),
+                  child: Center(
+                    child: Text("Google", style: TextStyles.font14BlackMedium),
                   ),
                 ),
               ),
