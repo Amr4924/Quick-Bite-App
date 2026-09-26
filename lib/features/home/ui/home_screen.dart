@@ -28,7 +28,7 @@ class HomeScreen extends StatelessWidget {
                 verticalSpacing(20),
                 const PopularAndSeeAll(),
                 verticalSpacing(20),
-                const DisplayIteam(),
+                const Displayitem(),
               ],
             ),
           ),

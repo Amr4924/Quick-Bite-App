@@ -6,6 +6,7 @@ class ProductModel {
   double price;
   String id;
   double rate;
+  bool isFavorite;
   ProductModel({
     required this.nameProduct,
     required this.description,
@@ -13,6 +14,7 @@ class ProductModel {
     required this.price,
     required this.id,
     required this.img,
-    required this.rate
+    required this.rate,
+    this.isFavorite = false,
   });
 }
