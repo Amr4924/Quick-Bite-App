@@ -5,13 +5,31 @@ import 'package:quick_bite/core/theming/color.dart';
 import 'package:quick_bite/core/theming/style.dart';
 
 class QuantityCounter extends StatelessWidget {
-  const QuantityCounter({super.key});
+  final double? widthContainer;
+  final double? heightContainer;
+  final double? widthButton;
+  final double? heightButton;
+  final TextStyle? style;
+  final Widget? child;
+  final void Function()? add;
+  final void Function()? decrease;
+  const QuantityCounter({
+    super.key,
+    this.widthContainer,
+    this.heightContainer,
+    this.widthButton,
+    this.heightButton,
+    this.style,
+    this.child,
+    this.add,
+    this.decrease,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 105.w,
-      height: 42.h,
+      width: widthContainer ?? 108.w,
+      height: heightContainer ?? 42.h,
       padding: EdgeInsets.symmetric(vertical: 6.h, horizontal: 6.w),
       decoration: BoxDecoration(
         color: ColorManager.whiteBackgroundColor,
@@ -21,10 +39,10 @@ class QuantityCounter extends StatelessWidget {
       child: Row(
         children: [
           InkWell(
-            onTap: () {},
+            onTap: decrease ?? () {},
             child: Container(
-              width: 28.w,
-              height: 28.h,
+              width: widthButton ?? 28.w,
+              height: heightButton ?? 28.h,
               decoration: BoxDecoration(
                 color: ColorManager.backgroundColor,
                 borderRadius: BorderRadius.circular(8.r),
@@ -32,14 +50,29 @@ class QuantityCounter extends StatelessWidget {
               child: Icon(Icons.remove),
             ),
           ),
-          horizontalSpacing(14),
-          Expanded(child: Text("1", style: TextStyles.font15BlackSemiBold)),
-          horizontalSpacing(14),
+          horizontalSpacing(6),
+          SizedBox(
+            width: 24.w,
+            child: Center(
+              child: FittedBox(
+                fit: BoxFit.scaleDown,
+                child:
+                    child ??
+                    Text(
+                      "1",
+                      maxLines: 1,
+                      softWrap: false,
+                      style: style ?? TextStyles.font15BlackSemiBold,
+                    ),
+              ),
+            ),
+          ),
+          horizontalSpacing(6),
           InkWell(
-            onTap: () {},
+            onTap: add ?? () {},
             child: Container(
-              width: 28.w,
-              height: 28.h,
+              width: widthButton ?? 28.w,
+              height: heightButton ?? 28.h,
               decoration: BoxDecoration(
                 color: ColorManager.backgroundColor,
                 borderRadius: BorderRadius.circular(8.r),

@@ -3,9 +3,10 @@ class ProductModel {
   String description;
   String category;
   String img;
-  double price;
   String id;
+  double price;
   double rate;
+  int quantity;
   bool isFavorite;
   ProductModel({
     required this.nameProduct,
@@ -16,5 +17,6 @@ class ProductModel {
     required this.img,
     required this.rate,
     this.isFavorite = false,
+    this.quantity = 1,
   });
 }

@@ -39,7 +39,14 @@ class DetailsSection extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(item.nameProduct, style: TextStyles.font21BlackBold),
+                  Expanded(
+                    child: Text(
+                      item.nameProduct,
+                      maxLines: 1,
+                      style: TextStyles.font21BlackBold,
+                    ),
+                  ),
+                  horizontalSpacing(8),
                   Row(
                     children: [
                       Icon(
