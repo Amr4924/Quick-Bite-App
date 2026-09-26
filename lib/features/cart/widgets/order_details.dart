@@ -44,14 +44,16 @@ class OrderDetails extends StatelessWidget {
           ),
           Divider(color: ColorManager.grey, thickness: 1),
           verticalSpacing(10),
-          SummaryRow(
-            title: "Total",
-            price:
-                "\$${(context.watch<ProductCubit>().state.totalPrice + context.watch<ProductCubit>().state.deliveryPrice).toStringAsFixed(2)}",
-            styleTitle: TextStyles.font16WhiteSemiBold.copyWith(
-              color: ColorManager.textPrimary,
+          Expanded(
+            child: SummaryRow(
+              title: "Total",
+              price:
+                  "\$${(context.watch<ProductCubit>().state.totalPrice + context.watch<ProductCubit>().state.deliveryPrice).toStringAsFixed(2)}",
+              styleTitle: TextStyles.font16WhiteSemiBold.copyWith(
+                color: ColorManager.textPrimary,
+              ),
+              stylePrice: TextStyles.font17WhiteSemiBold,
             ),
-            stylePrice: TextStyles.font17WhiteSemiBold,
           ),
         ],
       ),
