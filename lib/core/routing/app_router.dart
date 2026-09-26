@@ -8,7 +8,7 @@ import 'package:quick_bite/features/product_details/ui/product_details_screen.da
 
 class AppRouter {
   Route<dynamic> generateRoute(RouteSettings settings) {
-    final argumentsIteam = settings.arguments;
+    final argumentsitem = settings.arguments;
     switch (settings.name) {
       case Routes.onboardingScreen:
         return MaterialPageRoute(builder: (_) => const OnboardingScreen());
@@ -18,7 +18,7 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const HomeScreen());
       case Routes.productDetails:
         return MaterialPageRoute(
-          builder: (_) => ProductDetails(iteam: argumentsIteam as ProductModel),
+          builder: (_) => ProductDetails(item: argumentsitem as ProductModel),
         );
       default:
         return MaterialPageRoute(
