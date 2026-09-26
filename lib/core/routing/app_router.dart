@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quick_bite/core/routing/router.dart';
 import 'package:quick_bite/features/auth/auth_screen.dart';
+import 'package:quick_bite/features/cart/cart_screen.dart';
 import 'package:quick_bite/features/home/data/product_model.dart';
 import 'package:quick_bite/features/home/ui/home_screen.dart';
 import 'package:quick_bite/features/onboarding/onboarding_screen.dart';
@@ -16,10 +17,12 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const AuthScreen());
       case Routes.homeScreen:
         return MaterialPageRoute(builder: (_) => const HomeScreen());
-      case Routes.productDetails:
+      case Routes.productDetailsScreen:
         return MaterialPageRoute(
           builder: (_) => ProductDetails(item: argumentsitem as ProductModel),
         );
+      case Routes.cartScreen:
+        return MaterialPageRoute(builder: (_) => CartScreen());
       default:
         return MaterialPageRoute(
           builder: (_) {

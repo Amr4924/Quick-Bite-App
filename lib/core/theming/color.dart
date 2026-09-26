@@ -11,4 +11,5 @@ class ColorManager {
   static const Color deepTerracotta = Color(0xffACA39E);
   static const Color red = Color(0xffFF3B30);
   static const Color peachCream = Color(0xffFEE4CA);
+  static const Color green = Color(0xff2FB344);
 }

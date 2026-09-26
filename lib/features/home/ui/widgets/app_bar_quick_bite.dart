@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quick_bite/core/helpers/spasing.dart';
+import 'package:quick_bite/core/routing/router.dart';
 import 'package:quick_bite/core/theming/color.dart';
 import 'package:quick_bite/core/theming/style.dart';
 import 'package:quick_bite/features/home/ui/widgets/icon_button_app_bar.dart';
@@ -69,7 +70,9 @@ class AppBarQuickBite extends StatelessWidget {
               IconButtonAppBar(
                 isBadge: true,
                 icon: Icons.shopping_cart_outlined,
-                action: () {},
+                action: () {
+                  Navigator.pushNamed(context, Routes.cartScreen);
+                },
               ),
             ],
           ),

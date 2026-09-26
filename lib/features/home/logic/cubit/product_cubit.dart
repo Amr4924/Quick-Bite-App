@@ -55,6 +55,7 @@ class ProductCubit extends Cubit<ProductState> {
           ],
           cart: [],
           totalPrice: 0.0,
+          deliveryPrice: 0.0,
         ),
       );
 
@@ -75,7 +76,79 @@ class ProductCubit extends Cubit<ProductState> {
         produts: products,
         totalPrice: state.totalPrice,
         cart: state.cart,
+        deliveryPrice: state.deliveryPrice,
       ),
+    );
+  }
+
+  void addToCart(ProductModel item, {int quantity = 1}) {
+    final cart = List<ProductModel>.from(state.cart);
+
+    final itemIndex = cart.indexWhere((cartItem) => cartItem.id == item.id);
+
+    if (itemIndex == -1) {
+      cart.add(_copyProduct(item, quantity: quantity));
+    } else {
+      cart[itemIndex].quantity += quantity;
+    }
+
+    _emitCart(cart);
+  }
+
+  void increaseCartQuantity(ProductModel item) {
+    final cart = List<ProductModel>.from(state.cart);
+    final itemIndex = cart.indexWhere((cartItem) => cartItem.id == item.id);
+
+    if (itemIndex != -1) {
+      cart[itemIndex].quantity++;
+      _emitCart(cart);
+    }
+  }
+
+  void decreaseCartQuantity(ProductModel item) {
+    final cart = List<ProductModel>.from(state.cart);
+    final itemIndex = cart.indexWhere((cartItem) => cartItem.id == item.id);
+
+    if (itemIndex != -1 && cart[itemIndex].quantity > 1) {
+      cart[itemIndex].quantity--;
+      _emitCart(cart);
+    }
+  }
+
+  void removeFromCart(ProductModel item) {
+    final cart = List<ProductModel>.from(state.cart)
+      ..removeWhere((cartItem) => cartItem.id == item.id);
+
+    _emitCart(cart);
+  }
+
+  void _emitCart(List<ProductModel> cart) {
+    final totalPrice = cart.fold<double>(
+      0,
+      (total, cartItem) => total + (cartItem.price * cartItem.quantity),
+    );
+
+    emit(
+      ProductState(
+        produts: state.produts,
+        cart: cart,
+        totalPrice: totalPrice,
+        deliveryPrice: totalPrice > 0 ? 2.0 : 0.0,
+      ),
+    );
+  }
+
+  ProductModel _copyProduct(ProductModel item, {required int quantity}) {
+    return ProductModel(
+      id: item.id,
+      nameProduct: item.nameProduct,
+      description: item.description,
+      category: item.category,
+      price: item.price,
+      rate: item.rate,
+      img: item.img,
+      isFavorite: item.isFavorite,
+      quantity: quantity,
     );
   }
 }

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quick_bite/core/helpers/spasing.dart';
 import 'package:quick_bite/core/theming/color.dart';
 import 'package:quick_bite/core/widgets/icon_button_app.dart';
@@ -8,7 +7,7 @@ import 'package:quick_bite/features/home/data/product_model.dart';
 import 'package:quick_bite/features/home/logic/cubit/product_cubit.dart';
 import 'package:quick_bite/features/home/logic/cubit/product_state.dart';
 import 'package:quick_bite/features/product_details/ui/widgets/add_to_cart_section.dart';
-import 'package:quick_bite/features/product_details/ui/widgets/details_sectiopn.dart';
+import 'package:quick_bite/features/product_details/ui/widgets/details_section.dart';
 import 'package:quick_bite/features/product_details/ui/widgets/product_image.dart';
 
 class ProductDetails extends StatelessWidget {
@@ -25,8 +24,7 @@ class ProductDetails extends StatelessWidget {
         return Scaffold(
           body: Column(
             children: [
-              SizedBox(
-                height: 740.h,
+              Expanded(
                 child: Stack(
                   children: [
                     ProductImgae(item: item),
@@ -76,7 +74,7 @@ class ProductDetails extends StatelessWidget {
                 ),
               ),
               verticalSpacing(11),
-              AddToCartSection(),
+              AddToCartSection(item: item),
             ],
           ),
         );

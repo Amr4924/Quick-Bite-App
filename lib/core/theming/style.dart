@@ -30,6 +30,11 @@ class TextStyles {
     fontWeight: TextWeightHelper.semiBold,
     color: Colors.white,
   );
+  static TextStyle font17WhiteSemiBold = GoogleFonts.poppins(
+    fontSize: 17.sp,
+    fontWeight: TextWeightHelper.semiBold,
+    color: ColorManager.textPrimary,
+  );
   static TextStyle font14WarmGrayRegular = GoogleFonts.poppins(
     fontSize: 14.sp,
     fontWeight: TextWeightHelper.regular,
