@@ -2,24 +2,18 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:quick_bite/core/helpers/spasing.dart';
-import 'package:quick_bite/core/theming/color.dart';
 import 'package:quick_bite/core/theming/style.dart';
 import 'package:quick_bite/features/auth/logic/cubit/auth_switch_cubit.dart';
 import 'package:quick_bite/features/auth/logic/cubit/auth_switch_state.dart';
 import 'package:quick_bite/features/auth/login/ui/login_screen.dart';
 import 'package:quick_bite/features/auth/sign_up/ui/sign_up_screen.dart';
+import 'package:quick_bite/features/auth/widgets/auth_header.dart';
+import 'package:quick_bite/features/auth/widgets/auth_switcher.dart';
 
-class AuthScreen extends StatefulWidget {
+class AuthScreen extends StatelessWidget {
   const AuthScreen({super.key});
 
-  @override
-  State<AuthScreen> createState() => _AuthScreenState();
-}
-
-class _AuthScreenState extends State<AuthScreen> {
-  bool isLogIn = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,92 +27,16 @@ class _AuthScreenState extends State<AuthScreen> {
                 switchOutCurve: Curves.easeInOutCirc,
                 duration: Duration(milliseconds: 400),
                 child: Column(
-                  key: ValueKey(state.isLogin),
+                  key: ValueKey<bool>(state.isLogin),
                   children: [
-                    SvgPicture.asset('assets/svgs/quickBite_logo.svg'),
+                    const AuthHeader(),
                     verticalSpacing(20),
-                    Text(
-                      state.isLogin ? "Welcome Back" : "Create Account",
-                      style: TextStyles.font24BlackBold,
-                    ),
-                    verticalSpacing(20),
-                    Text(
-                      state.isLogin
-                          ? "Log in to continue ordering your\nfavorites"
-                          : "Sign up to start ordering your favorite\nmeals",
-                      style: TextStyles.font14WarmGrayRegular,
-                      textAlign: TextAlign.center,
-                    ),
-                    verticalSpacing(20),
-                    Container(
-                      width: 334.w,
-                      height: 48.h,
-                      color: Color(0xffFFFFFF),
-                      padding: EdgeInsets.symmetric(horizontal: 2.w),
-                      child: Row(
-                        children: [
-                          Expanded(
-                            child: GestureDetector(
-                              onTap: () {
-                                context.read<AuthSwitchCubit>().switchLogin();
-                              },
-                              child: Container(
-                                width: 160.w,
-                                height: 38.h,
-                                decoration: BoxDecoration(
-                                  color: state.isLogin
-                                      ? ColorManager.primaryColor
-                                      : ColorManager.backgroundColor,
-                                  borderRadius: BorderRadius.circular(11.r),
-                                ),
-                                child: Center(
-                                  child: Text(
-                                    "Log In",
-                                    style: TextStyles.font14WhiteSemiBold
-                                        .copyWith(
-                                          color: state.isLogin
-                                              ? Colors.white
-                                              : ColorManager.textPrimary,
-                                        ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                          Expanded(
-                            child: GestureDetector(
-                              onTap: () {
-                                context.read<AuthSwitchCubit>().switchSignUp();
-                              },
-                              child: Container(
-                                width: 160.w,
-                                height: 38.h,
-                                decoration: BoxDecoration(
-                                  color: !state.isLogin
-                                      ? ColorManager.primaryColor
-                                      : ColorManager.backgroundColor,
-                                  borderRadius: BorderRadius.circular(11.r),
-                                ),
-                                child: Center(
-                                  child: Text(
-                                    "Sign Up",
-                                    style: TextStyles.font14WhiteSemiBold
-                                        .copyWith(
-                                          color: !state.isLogin
-                                              ? Colors.white
-                                              : ColorManager.textPrimary,
-                                        ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+                    const AuthSwitcher(),
                     verticalSpacing(25),
                     Expanded(
-                      child: state.isLogin ? LoginScreen() : SignUpScreen(),
+                      child: state.isLogin
+                          ? const LoginScreen()
+                          : const SignUpScreen(),
                     ),
                     RichText(
                       text: TextSpan(
@@ -132,17 +50,13 @@ class _AuthScreenState extends State<AuthScreen> {
                             style: TextStyles.font13OrangeSemiBold,
                             recognizer: TapGestureRecognizer()
                               ..onTap = () {
-                                setState(() {
-                                  if (isLogIn) {
-                                    context
-                                        .read<AuthSwitchCubit>()
-                                        .switchSignUp();
-                                  } else {
-                                    context
-                                        .read<AuthSwitchCubit>()
-                                        .switchLogin();
-                                  }
-                                });
+                                if (state.isLogin) {
+                                  context
+                                      .read<AuthSwitchCubit>()
+                                      .switchSignUp();
+                                } else {
+                                  context.read<AuthSwitchCubit>().switchLogin();
+                                }
                               },
                           ),
                         ],
