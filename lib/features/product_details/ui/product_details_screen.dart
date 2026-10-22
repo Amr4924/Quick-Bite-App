@@ -17,8 +17,8 @@ class ProductDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<ProductCubit, ProductState>(
       builder: (context, state) {
-        final product = state.produts.firstWhere(
-          (item) => item.id == item.id,
+        final selectedProduct = state.produts.firstWhere(
+          (product) => product.id == item.id,
           orElse: () => item,
         );
         return Scaffold(
@@ -41,11 +41,11 @@ class ProductDetails extends StatelessWidget {
                               action: () {
                                 context
                                     .read<ProductCubit>()
-                                    .toggleStateFavorite(product);
+                                    .toggleStateFavorite(selectedProduct);
                               },
                               child: AnimatedSwitcher(
                                 duration: Duration(milliseconds: 600),
-                                child: product.isFavorite
+                                child: selectedProduct.isFavorite
                                     ? Icon(
                                         key: ValueKey("favorite"),
                                         Icons.favorite,

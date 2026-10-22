@@ -9,13 +9,15 @@ class AppButton extends StatelessWidget {
   final Color? backgroundColor;
   final double? width;
   final double? height;
-  const AppButton({
+  bool isLoding;
+  AppButton({
     super.key,
     this.onPressed,
     this.textButton,
     this.backgroundColor,
     this.height,
     this.width,
+    this.isLoding = false,
   });
   @override
   Widget build(BuildContext context) {
@@ -28,7 +30,9 @@ class AppButton extends StatelessWidget {
         ),
         onPressed: onPressed,
 
-        child: Text(textButton ?? "", style: TextStyles.font16WhiteSemiBold),
+        child: isLoding
+            ? CircularProgressIndicator(color: Colors.white)
+            : Text(textButton ?? "", style: TextStyles.font16WhiteSemiBold),
       ),
     );
   }
